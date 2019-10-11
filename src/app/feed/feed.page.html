@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title style="text-align: center">Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content no-border-top class="scrollable-segments">
+  <ion-segment scrollable color="primary" [(ngModel)]="yudsegment">
+    <ion-segment-button value="1go">
+      1 Go
+    </ion-segment-button>
+
+    <ion-segment-button value="2go">
+      2 Go
+    </ion-segment-button>
+
+    <ion-segment-button value="3go">
+      3 Go
+    </ion-segment-button>
+
+    <ion-segment-button value="NNC">
+      Ngày nhập cảnh
+    </ion-segment-button>
+
+    <ion-segment-button value="X">
+      Xưởng
+    </ion-segment-button>
+
+    <ion-segment-button value="TB">
+      Toàn bộ
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="yudsegment">
+    <ion-list *ngSwitchCase="'1go'">
+      <ion-header>
+        <ion-item lines="none">
+          <label fill="clear" slot="start">Danh sách nhóm TTS</label>
+          <ion-icon ios="ios-add" md="md-add" slot="end"></ion-icon>
+        </ion-item>
+      </ion-header>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="https://s3.amazonaws.com/iconbros/icons/icon_pngs/000/000/344/original/avatar.png?1510841721">
+        </ion-avatar>
+        <ion-label>Lorem ipsum</ion-label>
+      </ion-item>
+      <ion-header>
+        <ion-item lines="none">
+          <label fill="clear" slot="start">Danh sách TTS chưa có nhóm</label>
+          <ion-icon ios="ios-add" md="md-add" slot="end"></ion-icon>
+        </ion-item>
+      </ion-header>
+      <ion-list>
+          <ion-list-header>Interface Options</ion-list-header>
+        
+          <ion-item>
+            <ion-label>Tạ Thành Đạt</ion-label>
+            <ion-select [interfaceOptions]="customAlertOptions" interface="alert" multiple="true" placeholder="Select One">
+            </ion-select>
+          </ion-item>
+        
+        </ion-list>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'2go'">
+      <ion-item>This Month</ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'3go'">
+      <ion-item>This year</ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'NNC'">
+      <ion-item>This year</ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'X'">
+      <ion-item>This year</ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'TB'">
+      <ion-item>This year</ion-item>
+    </ion-list>
+  </div>
+</ion-content>

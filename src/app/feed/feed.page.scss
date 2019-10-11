@@ -1,0 +1,12 @@
+ion-content.scrollable-segments {
+    ion-segment {
+      overflow: auto;
+      white-space: nowrap;
+    
+      }
+      ion-segment-button{
+        display: inline-block;
+        
+       // width: auto;
+     }
+    }

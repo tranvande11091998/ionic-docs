@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title style="text-align: center">Register in Hoang Hung Japan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header>
+            <img src="https://i.ytimg.com/vi/aTScK_DRv6U/maxresdefault.jpg">
+          </ion-card-header>
+          <div class="ion-text-center" style="font-weight: bold">
+            <h3>Chào mừng bạn</h3>
+            <h3>Đến với Hoàng Hưng Japan</h3>
+          </div>
+          <ion-card-content>
+            <ion-item>
+              <ion-label position="floating">
+                Username
+              </ion-label>
+              <ion-input type="text" [(ngModel)]="username"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">
+                Password
+              </ion-label>
+              <ion-input type="password" [(ngModel)]="password"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">
+                Confirm Password
+              </ion-label>
+              <ion-input type="password" [(ngModel)]="cpassword"></ion-input>
+            </ion-item>
+            <ion-col size-md="6" offset-md="3">
+            <ion-button fill="solid" expand="block" color="dark" (click)="register()">Đăng ký</ion-button>
+            <ion-button style="font-weight: bold" fill="solid" expand="block" color="success" [routerLink]="['/login']">
+                <ion-icon slot="start" name="logo-freebsd-devil"></ion-icon>Đăng nhập
+              </ion-button>
+          </ion-col>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
