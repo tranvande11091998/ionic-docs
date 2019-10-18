@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild, LOCALE_ID, Inject } from '@angular/core';
 import { CalendarComponent } from 'ionic2-calendar/calendar';
-import { from } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { AlertController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
 import { Todo, TodoService } from '../services/todo.service';
-import { Todo2 } from '../services/todo2.service';
+import { Todo2,Todo2Service } from '../services/todo2.service';
 import { Todo1Service } from '../services/todo1.service';
+import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-calendar',
@@ -14,8 +16,13 @@ import { Todo1Service } from '../services/todo1.service';
 })
 export class CalendarPage implements OnInit {
   [x: string]: any;
+  private todosCollection2: AngularFirestoreCollection<Todo2>;
+  private todosCollection: AngularFirestoreCollection<Todo>;
+  //private todos: Observable<Todo[]>;
+  private todos2: Observable<Todo2[]>;
+  
+  
 
-  todos: Todo[];
 
   todo2: Todo2 = {
     cv: '',
@@ -41,9 +48,28 @@ export class CalendarPage implements OnInit {
 
   @ViewChild(CalendarComponent, {static: true}) myCal: CalendarComponent;
 
-  // tslint:disable-next-line: max-line-length
-    /* tslint:disable:no-unused-variable */
-  constructor(private todoService: Todo1Service, private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string) {
+  constructor(private todoService: Todo1Service, private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string,db: AngularFirestore) {
+    this.todosCollection = db.collection<Todo>('todos');
+
+    this.todos = this.todosCollection.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
+    this.todosCollection2 = db.collection<Todo2>('todos2');
+    this.todos2 = this.todosCollection.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
     this.resetEvent();
   }
 
@@ -63,13 +89,13 @@ export class CalendarPage implements OnInit {
 
   addEvent() {
     const eventCopy = {
-      cv: this.event.cv,
-      ndcd: this.event.ndcd,
-      cvat: this.event.cvat,
-      ndcdcvat: this.event.ndcdcvat,
-      startTime: new Date(this.event.startTime),
-      endTime: new Date(this.event.endTime),
-      allDay: this.event.allDay,
+      cv: this.todo2.cv,
+      ndcd: this.todo2.ndcd,
+      cvat: this.todo2.cvat,
+      ndcdcvat: this.todo2.ndcdcvat,
+      startTime: new Date(this.todo2.startTime),
+      endTime: new Date(this.todo2.endTime),
+      allDay: this.todo2.allDay,
     };
 
     if (eventCopy.allDay) {

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
-import { Todo1 } from './todo1.service';
 import { map } from 'rxjs/operators';
 
 export interface Todo2 {
@@ -20,12 +19,12 @@ export interface Todo2 {
 export class Todo2Service {
   private todosCollection2: AngularFirestoreCollection<Todo2>;
 
-  private event: Observable<Todo2[]>;
+  private todos2: Observable<Todo2[]>;
 
   constructor(db: AngularFirestore) {
-    this.todosCollection2 = db.collection<Todo2>('event');
+    this.todosCollection2 = db.collection<Todo2>('todos2');
 
-    this.event = this.todosCollection2.snapshotChanges().pipe(
+    this.todos2 = this.todosCollection2.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
@@ -37,7 +36,7 @@ export class Todo2Service {
    }
 
    getTodos2() {
-     return this.event;
+     return this.todos2;
    }
 
    getTodo2(id) {

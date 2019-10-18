@@ -39,8 +39,8 @@
 
     <ion-item>
       <ion-label slot="start">Người chỉ đạo</ion-label>
-      <ion-select slot="end" [(ngModel)]="todo1.ncd">
-        <ion-select-option *ngFor="let item of todos">{{item.ten}}</ion-select-option>
+      <ion-select slot="end" [(ngModel)]="todo1.ncd"  >
+        <ion-select-option *ngFor='let item of todos |async' >{{item.ten}}</ion-select-option>
       </ion-select>
     </ion-item>
 

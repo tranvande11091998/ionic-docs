@@ -46,7 +46,7 @@
       <ion-item>
           <ion-label slot="start">Công việc</ion-label>
           <ion-select slot="end" [(ngModel)]="todo2.cv">
-            <ion-select-option *ngFor="let item of todos">{{item.ten}}</ion-select-option>
+            <ion-select-option *ngFor="let item of todos |async">{{item.ten}}</ion-select-option>
           </ion-select>
         </ion-item>
 
@@ -57,7 +57,7 @@
       <ion-item>
           <ion-label slot="start">Công việc an toàn</ion-label>
           <ion-select slot="end" [(ngModel)]="todo2.cvat">
-            <ion-select-option *ngFor="let item of todos">{{item.ten}}</ion-select-option>
+            <ion-select-option *ngFor="let item of todos | async">{{item.ten}}</ion-select-option>
           </ion-select>
       </ion-item>
 

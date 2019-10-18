@@ -3,6 +3,9 @@ import { Todo1, Todo1Service } from '../services/todo1.service';
 import { ActivatedRoute } from '@angular/router';
 import { LoadingController, NavController } from '@ionic/angular';
 import { Todo, TodoService } from '../services/todo.service';
+import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/internal/Observable';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-go1',
@@ -12,7 +15,9 @@ import { Todo, TodoService } from '../services/todo.service';
 export class Go1Page implements OnInit {
   [x: string]: any;
 
-  todos: Todo[];
+  private todosCollection: AngularFirestoreCollection<Todo>;
+
+  private todos: Observable<Todo[]>;
 
   isIndeterminate: boolean;
   masterCheck: boolean;
@@ -23,13 +28,14 @@ export class Go1Page implements OnInit {
     cv1: '',
     mcv1: '',
     nlv1: '',
-    ncd: [],
+    ncd: '',
   };
 
   todoId1 = null;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private todoService: TodoService, private todoService1: Todo1Service, private route: ActivatedRoute, private loadingController: LoadingController, private nav: NavController) {
+  constructor(private todoService: TodoService, private todoService1: Todo1Service, 
+    private route: ActivatedRoute, private loadingController: LoadingController, private nav: NavController,db: AngularFirestore) {
     this.checkBoxList = [
       {
         value: 'Tạ Thành Đạt',
@@ -48,6 +54,17 @@ export class Go1Page implements OnInit {
         isChecked: false
       }
     ];
+    this.todosCollection = db.collection<Todo>('todos');
+
+    this.todos = this.todosCollection.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
   }
 
 
@@ -82,6 +99,7 @@ export class Go1Page implements OnInit {
   }
 
   ngOnInit() {
+  
     // tslint:disable-next-line: no-string-literal
     this.todoId1 = this.route.snapshot.params['id'];
     if (this.todoId1) {
@@ -122,7 +140,11 @@ export class Go1Page implements OnInit {
       });
     }
   }
-
+  loadLists() {
+    this.todoService.getMakeList().then(res => {
+        this.todos = res.makes;
+    });
+ }
 
 
 }

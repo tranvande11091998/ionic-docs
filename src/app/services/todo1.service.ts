@@ -10,7 +10,7 @@ export interface Todo1 {
   cv1: string;
   mcv1: string;
   nlv1: string;
-  ncd: [];
+  ncd: string;
 }
 
 @Injectable({
