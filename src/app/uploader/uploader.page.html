@@ -1,64 +1,121 @@
 <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title style="text-align: center">Upload image</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color="primary">
+    <ion-title style="text-align: center">Home</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content class="padding">
 
-  <app-loading *ngIf="busy"></app-loading>
 
-  <div class="center" *ngIf="!busy">
-    <div class="camera"></div>
+<ion-content no-border-top class="scrollable-segments">
+  <ion-segment scrollable color="primary" [(ngModel)]="yudsegment">
+    <ion-segment-button value="1go">
+      1 Go
+    </ion-segment-button>
 
-    <input type="file" *ngIf="!imageURL" (change)="fileChanged($event)" class="filebtn" #fileButton />
+    <ion-segment-button value="2go">
+      2 Go
+    </ion-segment-button>
 
-    <ion-button shape="round" color="primary" (click)="uploadFile()" *ngIf="!imageURL" fill="outline">Upload File
-    </ion-button>
+    <ion-segment-button value="3go">
+      3 Go
+    </ion-segment-button>
 
-    <div *ngIf="imageURL">
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12">
-            <ion-img src="https://ucarecdn.com/{{ imageURL }}/-/preview/{{ activeEffect }}"></ion-img>
-            <ion-card-content>
-              <ion-textarea placeholder="Enter some description" [(ngModel)]="desc">
-              </ion-textarea>
-              <ion-button shape="round" color="primary" (click)="createPost()">POST</ion-button>
-            </ion-card-content>
-          </ion-col>
-        </ion-row>
+    <ion-segment-button value="NNC">
+      Ngày nhập cảnh
+    </ion-segment-button>
 
-        <ion-row>
-          <ion-col [class.active]="activeEffect==effects.effect1" (click)="setSelected('effect1')">
-            <ion-img src="https://ucarecdn.com/{{ imageURL }}/{{ scaleCrop }}/">
-            </ion-img>
-          </ion-col>
-          <ion-col [class.active]="activeEffect==effects.effect2" (click)="setSelected('effect2')">
-            <ion-img src="https://ucarecdn.com/{{ imageURL }}/{{ scaleCrop }}/{{ effects.effect2 }}/">
-            </ion-img>
-          </ion-col>
-          <ion-col [class.active]="activeEffect==effects.effect3" (click)="setSelected('effect3')">
-            <ion-img src="https://ucarecdn.com/{{ imageURL }}/{{ scaleCrop }}/{{ effects.effect3 }}/">
-            </ion-img>
-          </ion-col>
-          <ion-col [class.active]="activeEffect==effects.effect4" (click)="setSelected('effect4')">
-            <ion-img src="https://ucarecdn.com/{{ imageURL }}/{{ scaleCrop }}/{{ effects.effect4 }}/">
-            </ion-img>
-          </ion-col>
-          <ion-col [class.active]="activeEffect==effects.effect5" (click)="setSelected('effect5')">
-            <ion-img src="https://ucarecdn.com/{{ imageURL }}/{{ scaleCrop }}/{{ effects.effect5 }}/">
-            </ion-img>
-          </ion-col>
-        </ion-row>
+    <ion-segment-button value="X">
+      Xưởng
+    </ion-segment-button>
 
-        <ion-row *ngIf="noFace">
-          <ion-col side="12">
-            <p class="no-face">Images with faces perform 150 times better!</p>
-          </ion-col>
-        </ion-row>
+    <ion-segment-button value="TB">
+      Toàn bộ
+    </ion-segment-button>
+  </ion-segment>
 
-      </ion-grid>
-    </div>
-  </div>
+
+<div [ngSwitch]="yudsegment">
+  <ion-list *ngSwitchCase="'1go'">
+
+      <ion-item>
+        <ion-label class="testclass">Danh sách TTS có nhóm</ion-label>
+        <ion-icon ios="ios-add" md="md-add" slot="end" [routerLink]="['/go1']"></ion-icon>
+      </ion-item>
+   
+
+      <ion-item lines="inset">
+        <ion-avatar slot="start">
+          <img src="https://thuthuatnhanh.com/wp-content/uploads/2019/07/hinh-anh-avatar-chibi-cuc-cute-de-thuong-cho-facebook-9.jpg">
+        </ion-avatar>
+        <ion-label [routerLink]="['/list']"><h2>Nhóm 1</h2>
+<!--            
+            <h3>{{ item1.tn1 }}</h3>
+            <ion-label>
+                <h5>Nơi làm việc</h5>
+               
+                <h5>Mã công việc</h5>
+              </ion-label> -->
+      
+        </ion-label>
+      </ion-item>
+
+
+    <ion-header>
+      <ion-item>
+          <label fill="clear" slot="start">Danh sách TTS chưa có nhóm</label>
+        <ion-icon ios="ios-add" md="md-add" slot="end"></ion-icon>
+      </ion-item>
+    </ion-header>
+
+    <ion-item>
+      <ion-label>Tạ Thành Đạt</ion-label>
+      <ion-select [interfaceOptions]="customAlertOptions5" interface="alert" multiple="true">
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Đàm Công Hiến</ion-label>
+      <ion-select [interfaceOptions]="customAlertOptions6" interface="alert" multiple="true">
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Nguyễn Phú Quý</ion-label>
+      <ion-select [interfaceOptions]="customAlertOptions7" interface="alert" multiple="true">
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Nguyễn Đức Lai</ion-label>
+      <ion-select [interfaceOptions]="customAlertOptions8" interface="alert" multiple="true">
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Nguyễn Thọ Đặng</ion-label>
+      <ion-select [interfaceOptions]="customAlertOptions9" interface="alert" multiple="true">
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'2go'">
+    <ion-item>This Month</ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'3go'">
+    <ion-item>This year</ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'NNC'">
+    <ion-item>This year</ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'X'">
+    <ion-item>This year</ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'TB'">
+    <ion-item>This year</ion-item>
+  </ion-list>
+</div>
 </ion-content>

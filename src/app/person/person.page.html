@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title style="text-align: center">Người chỉ đạo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+    <ng-container *ngIf="!todos || todos.length == 0">
+      <div *ngFor="let n of [0,1,2,3,4,5]" class="ion-padding">
+        <ion-skeleton-text></ion-skeleton-text>
+        <p>
+          <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+        </p>
+      </div>
+    </ng-container>
+
+    <ion-item-sliding *ngFor="let item of todos">
+      <ion-item lines="inset">
+        <ion-label>
+          {{ item.ten }}
+        </ion-label>
+        <!-- <ion-icon name="person" slot="end"> -->
+          <ion-select>
+            <ion-select-option>{{ item.ten }}</ion-select-option>
+            <ion-select-option>{{ item.gioitinh }}</ion-select-option>
+            <ion-select-option>{{ item.age }}</ion-select-option>
+            <ion-select-option>{{ item.congviec }}</ion-select-option>
+            <ion-select-option>{{ item.noilamviec }}</ion-select-option>
+            <ion-select-option>{{ item.chucvu }}</ion-select-option>
+          </ion-select>
+<!-- 
+        </ion-icon> -->
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option (click)="remove(item)" color="secondary">
+          Check
+          <ion-icon name="checkmark" slot="end"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/ncd']" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

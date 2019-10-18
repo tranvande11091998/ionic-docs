@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/person">
+      </ion-back-button>
+    </ion-button>
+    <ion-title>Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list lines="full">
+    <ion-item>
+      <ion-input required type="text" placeholder="Tên" [(ngModel)]="todo.ten">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input required type="text" placeholder="Giới tính" [(ngModel)]="todo.gioitinh">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input required type="number" placeholder="Tuổi" [(ngModel)]="todo.age">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input required type="text" placeholder="Công việc" [(ngModel)]="todo.congviec">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input required type="text" placeholder="Nơi làm việc" [(ngModel)]="todo.noilamviec">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input required type="text" placeholder="Chức vụ" [(ngModel)]="todo.chucvu">
+      </ion-input>
+    </ion-item>
+
+  </ion-list>
+  <ion-button expand="full" (click)="saveTodo()">Save</ion-button>
+</ion-content>

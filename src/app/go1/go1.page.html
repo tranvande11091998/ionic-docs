@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/feed">
+      </ion-back-button>
+    </ion-button>
+    <ion-buttons slot="end">
+      <ion-button expand="full" (click)="saveTodo1()">Save</ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">1 Go</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <br>
+  <ion-item class="ion-text-center">
+    <ion-label>Tạo nhóm mới</ion-label>
+  </ion-item>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-input required type="text" placeholder="Tên nhóm" [(ngModel)]="todo1.tn1">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input required type="text" placeholder="Công việc" [(ngModel)]="todo1.cv1">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input required type="number" placeholder="Mã công việc" [(ngModel)]="todo1.mcv1">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input required type="text" placeholder="Nơi làm việc" [(ngModel)]="todo1.nlv1">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label slot="start">Người chỉ đạo</ion-label>
+      <ion-select slot="end" [(ngModel)]="todo1.ncd">
+        <ion-select-option *ngFor="let item of todos">{{item.ten}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+  </ion-list>
+
+  <br>
+  <br>
+  <ion-item class="ion-text-center">
+    <ion-label>Danh sách thực tập sinh</ion-label>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label fill="clear" slot="start"><i>Nhập cảnh: 09/09/2019</i></ion-label>
+  </ion-item>
+
+  <ion-list>
+    <ion-item>
+      <ion-label slot="start"><strong>Chọn tất cả</strong></ion-label>
+      <ion-checkbox slot="end" [(ngModel)]="masterCheck" [indeterminate]="isIndeterminate"
+        (click)="checkMaster($event)"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let item of checkBoxList">
+      <ion-label>{{item.value}}</ion-label>
+      <ion-checkbox slot="start" [(ngModel)]="item.isChecked" (ionChange)="checkEvent()"></ion-checkbox>
+      <ion-icon name="information-circle" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

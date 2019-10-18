@@ -51,4 +51,8 @@ export class LoginPage implements OnInit {
       }
     }
   }
+
+  facebookLogin() {}
+
+  twitterLogin() {}
 }

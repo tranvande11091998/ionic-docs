@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/upload">
+      </ion-back-button>
+    </ion-button>
+    <ion-title>Nhóm A</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-title style="text-align: center; font-size: 15px; margin-top: 2px;">Lịch làm việc {{today|date}} </ion-title>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="a">
+        <div>Bắt buộc : </div>
+
+      </ion-col>
+      <ion-col class="a">
+        <div>Liên quan :</div>
+
+      </ion-col>
+      <ion-col class="a">
+        <div>Xung quanh :</div>
+
+      </ion-col>
+
+    </ion-row>
+    <ion-row class="b">
+      <ion-col size="4" style="font-size: 10px;">
+        <div>Ngày</div>
+      </ion-col>
+      <ion-col size="3" style="font-size: 10px;">
+        <div>Mục</div>
+      </ion-col>
+      <ion-col size="4.9" style="font-size: 10px;">
+        <div>Nội dung</div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="c" *ngFor="let list of List">
+      <ion-col size="4" style="font-size: 10px;">
+        <div>{{list.date}}</div>
+      </ion-col>
+      <ion-col size="3" style="font-size: 10px;">
+        <div>{{list.muc}}</div>
+      </ion-col>
+      <ion-col size="4.9" style="font-size: 10px;">
+        <div>{{list.nd}}</div>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+        <ion-buttons class="d">
+            <ion-button>Sửả thông tin</ion-button>
+          </ion-buttons>
+    </ion-row>
+  </ion-grid>
+ 
+
+</ion-content>

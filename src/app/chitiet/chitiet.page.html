@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/calendar">
+      </ion-back-button>
+    </ion-button>
+    <ion-title>Chi tiết đơn hàng</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="padding">
+    <ion-item>
+      <ion-label>Đơn hàng: </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Ngày nhập cảnh: </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Công việc: </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Mã công việc: </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Nơi làm việc: </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Ghi chú: </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Giai đoạn: </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <br>
+    <br>
+    <ion-header>
+      <ion-item lines="none">
+        <ion-label class="testclass" fill="clear" slot="start">Danh sách TTS
+          <hr>
+        </ion-label>
+      </ion-item>
+    </ion-header>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Tạ Thành Đạt</ion-label>
+        <ion-select [interfaceOptions]="customAlertOptions5" interface="alert" multiple="true">
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Đàm Công Hiến</ion-label>
+        <ion-select [interfaceOptions]="customAlertOptions6" interface="alert" multiple="true">
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nguyễn Phú Quý</ion-label>
+        <ion-select [interfaceOptions]="customAlertOptions7" interface="alert" multiple="true">
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nguyễn Đức Lai</ion-label>
+        <ion-select [interfaceOptions]="customAlertOptions8" interface="alert" multiple="true">
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nguyễn Thọ Đặng</ion-label>
+        <ion-select [interfaceOptions]="customAlertOptions9" interface="alert" multiple="true">
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
