@@ -54,5 +54,13 @@ export class LoginPage implements OnInit {
 
   facebookLogin() {}
 
-  twitterLogin() {}
+  twitterLogin() {
+    const {username,password}= this;
+    try {
+      
+    } catch (error) {
+      
+    }
+
+  }
 }

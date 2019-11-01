@@ -35,6 +35,7 @@ export class Go1Page implements OnInit {
 
   // tslint:disable-next-line: max-line-length
   constructor(private todoService: TodoService, private todoService1: Todo1Service, 
+    // tslint:disable-next-line: align
     private route: ActivatedRoute, private loadingController: LoadingController, private nav: NavController,db: AngularFirestore) {
     this.checkBoxList = [
       {
@@ -99,7 +100,7 @@ export class Go1Page implements OnInit {
   }
 
   ngOnInit() {
-  
+
     // tslint:disable-next-line: no-string-literal
     this.todoId1 = this.route.snapshot.params['id'];
     if (this.todoId1) {

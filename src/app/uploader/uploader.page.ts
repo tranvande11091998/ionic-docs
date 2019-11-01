@@ -95,7 +95,7 @@ export class UploaderPage implements OnInit {
     const desc = this.desc;
     const activeEffect = this.activeEffect;
 
-    this.afstore.doc(`users/${this.user.getUID()}`).update({
+    this.afstore.doc(`users/z4mdX9C4vlR779CUWlDyKkVpgkd2`).update({
       posts: firestore.FieldValue.arrayUnion(`${image}/${activeEffect}`)
     });
     this.afstore.doc(`posts/${image}`).set({

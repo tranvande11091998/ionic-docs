@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { List } from '../list/list';
 
 export interface Todo2 {
   cv: string;
@@ -11,6 +12,8 @@ export interface Todo2 {
   startTime: string;
   endTime: string;
   allDay: boolean;
+  // TotalDay : number;
+  check: string;
 }
 
 @Injectable({
@@ -39,16 +42,17 @@ export class Todo2Service {
      return this.todos2;
    }
 
-   getTodo2(id) {
-     return this.todosCollection2.doc<Todo2>(id).valueChanges();
+   getTodo2() {
+     return this.todos2.pipe;
    }
 
    updateTodo2(todo2: Todo2, id: string) {
     return this.todosCollection2.doc(id).update(todo2);
    }
 
-   addTodo1(todo2: Todo2) {
-     return this.todosCollection2.add(todo2);
+   addTodo2(todo2: Todo2) {
+    return this.todosCollection2.add(todo2);
+
    }
 
    removeTodo2(id) {

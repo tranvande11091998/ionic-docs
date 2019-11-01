@@ -1,52 +1,120 @@
+<html ng-app="ionicApp">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Ionic Template</title>
+
+  <!-- <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet"> -->
+</head>
+<!--   
+    <ion-header class="bar-stable">
+      <h1 class="title">Service Provider Details</h1>
+    </ion-header>
+    <ion-content>
+        <div class="row header">
+          <div class="col">STT</div>
+          <div class="col">Nhóm 1</div>
+          <div class="col">Thứ 2</div>
+          <div class="col">Thứ 3</div>
+          <div class="col"></div>
+        </div>
+        <div class="row" *ngFor="let item of todos">
+          <div class="col">{{item.ten}}</div>
+          <div class="col">{{item.gioitinh}}</div>
+          <div class="col">{{item.age}}</div>
+          <div class="col">{{item.congviec}}</div>
+          <div class="col"><button class="button">Add</button></div>
+        </div>
+    </ion-content> -->
+<!-- <style>
+.ion-col{
+   border: 1px solid black;
+}
+.ion-row{
+  border: 1px solid black;
+}
+</style>
+    <ion-row>
+        <ion-col size = "1" style=" border: 1px solid black; white-space: nowrap;">
+        <ion-label >STT</ion-label>
+      </ion-col>
+      <ion-col size = "1" style="border: 1px solid black; white-space: nowrap;">
+        <ion-label >Nhóm</ion-label>
+      </ion-col>
+        <ion-col size = "1" style="border: 1px solid black; white-space: nowrap;">
+        <ion-label >Thứ 2</ion-label>
+      </ion-col>  
+      <ion-col size = "1" style="border: 1px solid black; white-space: nowrap;">
+          <ion-label >Thứ 3</ion-label>
+        </ion-col>  
+        <ion-col size = "1" style="border: 1px solid black; white-space: nowrap;">
+        <ion-label >Thứ 4</ion-label>
+      </ion-col>
+      <ion-col size = "1" style="border: 1px solid black; white-space: nowrap;">
+        <ion-label >Thứ 5</ion-label>
+      </ion-col>
+        <ion-col size = "1" style="border: 1px solid black; white-space: nowrap;" >
+        <ion-label >Thứ 6</ion-label>
+      </ion-col>
+        <ion-col size = "1"  style="border: 1px solid black; white-space: nowrap;">
+        <ion-label >Thứ 7</ion-label>
+      </ion-col >
+      <ion-col size = "1"  style="border: 1px solid black; white-space: nowrap;">
+        <ion-label>Chủ Nhật</ion-label>
+      </ion-col>
+    </ion-row >
+    <ion-row mdbTableCol *ngFor="let item of todos2 | async; let i = index">
+
+        <ion-col col-1 style=" border: 1px solid black;">{{i+1}}</ion-col>
+        <ion-col col-1 style=" border: 1px solid black;">Đơn hàng</ion-col>
+        <ion-col col-1 style=" border: 1px solid black;">{{item.check}}</ion-col>
+        <ion-col col-1 style=" border: 1px solid black;">{{item.ten}}</ion-col>
+        <ion-col col-1 style=" border: 1px solid black;">{{item.ten}}</ion-col>
+        <ion-col col-1 style=" border: 1px solid black;">{{item.ten}}</ion-col>
+        <ion-col col-1 style=" border: 1px solid black;">{{item.ten}}</ion-col>
+        <ion-col col-1 style=" border: 1px solid black;">{{item.ten}}</ion-col>
+        <ion-col col-1 style=" border: 1px solid black;">{{item.ten}}</ion-col>
+        
+   </ion-row> -->
+<!-- 
+<ion-content>
+  <mbsc-eventcalendar [data]="events" [options]="eventSettings"></mbsc-eventcalendar>
+</ion-content> -->
+
 <ion-header>
-  <ion-toolbar>
-    <ion-title style="text-align: center;">Thong ke</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Thông báo
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="switchStyle()">
+        {{tableStyle}}
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="customRowClass =! customRowClass">
+        <ion-icon name="bulb" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<!-- 
-  <ion-icon name="arrow-dropleft" class="iconSize" slot="start"></ion-icon>
-  <ion-text style="text-align: center;"> Tuan nay</ion-text>
-  <ion-icon name="arrow-dropright" class="iconSize" slot="end"></ion-icon> -->
-  
-  
-  <ion-row>
-    <ion-col size="4" class="ion-text-left">
-      <ion-button fill="clear">
-        <ion-icon name="arrow-dropleft" slot="icon-only" class="iconSize" ></ion-icon>
-      </ion-button>
-    </ion-col>
-  
-    <ion-col size="4" class="ion-text-center" >
-        <ion-button fill="clear">
-         Tuan nay
-        </ion-button>
-      </ion-col>
-  
-    <!-- Move forward one screen of the slides -->
-    <ion-col size="4" class="ion-text-right" >
-      <ion-button fill="clear">
-        <ion-icon name="arrow-dropright" slot="icon-only"  class="iconSize" ></ion-icon>
-      </ion-button>
-    </ion-col>
-  </ion-row>
-  <ion-grid>
-        <ion-row >
-          <ion-col class="mot"> STT</ion-col>
-          <ion-col class="mot">Nhom</ion-col>
-          <ion-col class="mot">T2</ion-col>
-          <ion-col class="mot">T3</ion-col>
-          <ion-col class="mot">T4</ion-col>
-          <ion-col class="mot">T5</ion-col>
-          <ion-col class="mot">T6</ion-col>
-          <ion-col class="mot">T7</ion-col>
-          <ion-col class="mot">CN</ion-col>
-        </ion-row>
-        
-          
-       
-    
-  </ion-grid>
-  
+  <ngx-datatable [rows]="companies" [ngClass]="tableStyle" [rowHeight]="'auto'" [headerHeight]="50" [columnMode]="'force'" [rowClass]="getRowClass.bind(this)">
+    <ngx-datatable-column name="name" color="secondary!important"></ngx-datatable-column>
+    <ngx-datatable-column name="Gender" headerClass="is-gender" [cellClass]="getCellClass" ></ngx-datatable-column>
+    <ngx-datatable-column name="Company"></ngx-datatable-column>
+
+    <ngx-datatable-column name="Actions" [sortable]="false">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <ion-button size="small" fill="outline" (click)="open(row)">Details</ion-button>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
 </ion-content>
+
+</html>

@@ -17,3 +17,43 @@
  padding: 5px;
  background-color: #EAEAEA;
 }
+
+
+body {
+    cursor: url('https://ionicframework.com/img/finger.png'), auto;
+  }
+  
+  .header .col {
+    background-color:lightgrey;
+  }
+  
+  .col {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+  }
+  
+  .col:last-child {
+    border-right: solid 1px grey;
+  }
+  
+  .row:last-child .col {
+    border-bottom: solid 1px grey;
+  }
+
+  .grid-bordered{
+    .row{
+      border-style: solid;
+      border-width: 1px 0px 1px 0px;
+      border-color: #dedede;
+    }
+    .col{
+      border-style: solid;
+      border-width: 0px 1px 0px 1px;
+      border-color: #dedede;
+    }
+  }
+
+  .is-female {
+    background: pink!important;
+  }

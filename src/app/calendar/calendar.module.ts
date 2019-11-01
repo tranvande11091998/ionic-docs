@@ -11,7 +11,6 @@ import { NgCalendarModule } from 'ionic2-calendar';
 import { TreeviewModule } from 'ngx-treeview';
 import { from } from 'rxjs';
 
-
 const routes: Routes = [
   {
     path: '',
