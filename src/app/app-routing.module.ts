@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'ncd', loadChildren: './ncd/ncd.module#NcdPageModule' },
   { path: 'go1', loadChildren: './go1/go1.module#Go1PageModule' },
   { path: 'chitiet', loadChildren: './chitiet/chitiet.module#ChitietPageModule' },
-  { path: 'list', loadChildren: './list/list.module#ListPageModule' },
+  { path: 'list', loadChildren: './list/list.module#ListPageModule' },  { path: 'fotgot-password', loadChildren: './fotgot-password/fotgot-password.module#FotgotPasswordPageModule' },
+
 ];
 
 // localhost/tabs

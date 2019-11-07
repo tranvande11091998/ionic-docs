@@ -1,47 +1,47 @@
 <ion-content>
 
-  <div class="padding">
+    <div class="padding">
 
 
-    <div class="logo">
+        <div class="logo">
 
-      <!-- <ion-icon color="light" name="contact"></ion-icon> -->
-      <img src="../../assets/icon/69387396_718690831928552_1529187015130611712_n.jpg">
+            <!-- <ion-icon color="light" name="contact"></ion-icon> -->
+            <img src="../../assets/icon/69387396_718690831928552_1529187015130611712_n.jpg">
 
+        </div>
+
+
+        <ion-item>
+            <ion-label color="light">Email</ion-label>
+            <ion-input color="light" placeholder="Adresse email" type="email" [(ngModel)]="username"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="light">Password</ion-label>
+            <ion-input color="light" placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+            <ion-button color="light" fill="clear" slot="end" [routerLink]="['/fotgot-password']">Quên mật khẩu</ion-button>
+        </ion-item>
+
+        <ion-button color="light" fill="outline" shape="round" expand="block" (click)="login()">Đăng nhập</ion-button>
+        <ion-button shape="round" expand="block" [routerLink]="['/register']">Đăng ký</ion-button>
+
+        <ion-item>
+            <ion-label class="ion-text-center" color="light">Đăng nhập tài khoản khác</ion-label>
+        </ion-item>
+
+        <div class="flex">
+            <ion-button shape="round" color="facebook" (click)="facebookLogin()">
+                <ion-icon slot="start" name="logo-facebook"></ion-icon>
+                Facebook
+            </ion-button>
+
+            <ion-button shape="round" color="google" (click)="twitterLogin()">
+                <ion-icon slot="start" name="logo-twitter"></ion-icon>
+                Twitter
+            </ion-button>
+        </div>
     </div>
-
-
-    <ion-item>
-      <ion-label color="light">Email</ion-label>
-      <ion-input color="light" placeholder="Adresse email" type="email" [(ngModel)]="username"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label color="light">Password</ion-label>
-      <ion-input color="light" placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
-
-    <ion-item lines="none">
-      <ion-button color="light" fill="clear" slot="end">Quên mật khẩu</ion-button>
-    </ion-item>
-
-    <ion-button color="light" fill="outline" shape="round" expand="block" (click)="login()">Đăng nhập</ion-button>
-    <ion-button shape="round" expand="block" [routerLink]="['/register']">Đăng ký</ion-button>
-
-    <ion-item>
-      <ion-label class="ion-text-center" color="light">Đăng nhập tài khoản khác</ion-label>
-    </ion-item>
-
-    <div class="flex">
-      <ion-button shape="round" color="facebook" (click)="facebookLogin()">
-        <ion-icon slot="start" name="logo-facebook"></ion-icon>
-        Facebook
-      </ion-button>
-
-      <ion-button shape="round" color="google" (click)="twitterLogin()">
-        <ion-icon slot="start" name="logo-twitter"></ion-icon>
-        Twitter
-      </ion-button>
-    </div>
-  </div>
 </ion-content>
